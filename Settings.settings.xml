@@ -1,0 +1,10 @@
+﻿<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
+	<Profiles>
+		<Profile Name="(Default)" />
+	</Profiles>
+	<Settings>
+		<Setting Name="PlayerSpeed" Type="System.Int32" Scope="User">
+			<Value Profile="(Default)">12</Value>
+		</Setting>
+	</Settings>
+</SettingsFile>

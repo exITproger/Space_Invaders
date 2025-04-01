@@ -95,7 +95,7 @@
             // 
             // btnResetSpeed
             // 
-            this.btnResetSpeed.Location = new System.Drawing.Point(181, 64);
+            this.btnResetSpeed.Location = new System.Drawing.Point(195, 64);
             this.btnResetSpeed.Name = "btnResetSpeed";
             this.btnResetSpeed.Size = new System.Drawing.Size(94, 56);
             this.btnResetSpeed.TabIndex = 4;

@@ -40,9 +40,9 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.PicPanel = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -50,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.PicPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -75,9 +75,9 @@
             // 
             // btnBuy
             // 
-            this.btnBuy.Location = new System.Drawing.Point(57, 193);
+            this.btnBuy.Location = new System.Drawing.Point(57, 156);
             this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(75, 23);
+            this.btnBuy.Size = new System.Drawing.Size(115, 60);
             this.btnBuy.TabIndex = 2;
             this.btnBuy.Text = "Купить";
             this.btnBuy.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             // 
             this.btnBuySpeed.Location = new System.Drawing.Point(67, 64);
             this.btnBuySpeed.Name = "btnBuySpeed";
-            this.btnBuySpeed.Size = new System.Drawing.Size(75, 23);
+            this.btnBuySpeed.Size = new System.Drawing.Size(105, 56);
             this.btnBuySpeed.TabIndex = 3;
             this.btnBuySpeed.Text = "speed";
             this.btnBuySpeed.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@
             // 
             this.btnResetSpeed.Location = new System.Drawing.Point(181, 64);
             this.btnResetSpeed.Name = "btnResetSpeed";
-            this.btnResetSpeed.Size = new System.Drawing.Size(75, 23);
+            this.btnResetSpeed.Size = new System.Drawing.Size(94, 56);
             this.btnResetSpeed.TabIndex = 4;
             this.btnResetSpeed.Text = "reset";
             this.btnResetSpeed.UseVisualStyleBackColor = true;
@@ -177,15 +177,15 @@
             this.PicPanel.TabIndex = 11;
             this.PicPanel.Tag = "";
             // 
-            // pictureBox7
+            // label1
             // 
-            this.pictureBox7.Image = global::Space_Invaders.Properties.Resources.Enemy2Bullet14na38;
-            this.pictureBox7.Location = new System.Drawing.Point(1153, 49);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(67, 124);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 11;
-            this.pictureBox7.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(74, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 35);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Враг";
             // 
             // pictureBox8
             // 
@@ -197,15 +197,15 @@
             this.pictureBox8.TabIndex = 12;
             this.pictureBox8.TabStop = false;
             // 
-            // label1
+            // pictureBox7
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(74, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 35);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Враг";
+            this.pictureBox7.Image = global::Space_Invaders.Properties.Resources.Enemy2Bullet14na38;
+            this.pictureBox7.Location = new System.Drawing.Point(1153, 49);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(67, 124);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 11;
+            this.pictureBox7.TabStop = false;
             // 
             // ShopForm
             // 
@@ -230,8 +230,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.PicPanel.ResumeLayout(false);
             this.PicPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

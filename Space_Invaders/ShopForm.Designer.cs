@@ -75,7 +75,7 @@
             // 
             // btnBuy
             // 
-            this.btnBuy.Location = new System.Drawing.Point(57, 156);
+            this.btnBuy.Location = new System.Drawing.Point(67, 197);
             this.btnBuy.Name = "btnBuy";
             this.btnBuy.Size = new System.Drawing.Size(115, 60);
             this.btnBuy.TabIndex = 2;
@@ -85,7 +85,7 @@
             // 
             // btnBuySpeed
             // 
-            this.btnBuySpeed.Location = new System.Drawing.Point(67, 64);
+            this.btnBuySpeed.Location = new System.Drawing.Point(131, 75);
             this.btnBuySpeed.Name = "btnBuySpeed";
             this.btnBuySpeed.Size = new System.Drawing.Size(105, 56);
             this.btnBuySpeed.TabIndex = 3;
@@ -95,7 +95,7 @@
             // 
             // btnResetSpeed
             // 
-            this.btnResetSpeed.Location = new System.Drawing.Point(195, 64);
+            this.btnResetSpeed.Location = new System.Drawing.Point(295, 75);
             this.btnResetSpeed.Name = "btnResetSpeed";
             this.btnResetSpeed.Size = new System.Drawing.Size(94, 56);
             this.btnResetSpeed.TabIndex = 4;

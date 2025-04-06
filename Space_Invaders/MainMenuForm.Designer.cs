@@ -31,17 +31,18 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnShop = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(872, 419);
+            this.button1.Location = new System.Drawing.Point(707, 429);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 63);
+            this.button1.Size = new System.Drawing.Size(254, 63);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Играть";
+            this.button1.Text = "Играть ПК";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -69,12 +70,25 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(1009, 429);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(243, 63);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Играть Моб";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Space_Invaders.Properties.Resources.pr;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnShop);
             this.Controls.Add(this.button1);
@@ -89,5 +103,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnShop;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button2;
     }
 }

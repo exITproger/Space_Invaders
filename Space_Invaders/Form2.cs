@@ -311,6 +311,10 @@ namespace Space_Invaders
             {
                 Properties.Resources.EnemyBullet14na38,
                 Properties.Resources.Enemy2Bullet14na38,
+
+
+
+
             };
 
             Random random = new Random();

@@ -187,5 +187,20 @@
   <ItemGroup>
     <None Include="Resources\Пули.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shop_Design_for_VS_1920_1080.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nazad_250_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RESET_250_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPEED_250_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KUPIT_250_80.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

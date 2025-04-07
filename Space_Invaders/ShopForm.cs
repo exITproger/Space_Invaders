@@ -56,5 +56,10 @@ namespace Space_Invaders
             Properties.Settings.Default.Save(); // Сохраняем изменения
             MessageBox.Show("Скорость сброшена до стандартного значения!");
         }
+
+        private void PicPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

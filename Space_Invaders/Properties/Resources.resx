@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="player1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\player1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bullet3_Skin_32n32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bullet3_Skin_32n32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enemy2Bullet14na38" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enemy2Bullet14na38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Пули" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Пули.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Enemy1_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Enemy1_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Bullet4_Skin_32n32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bullet4_Skin_32n32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shop_Design_for_VS_1920_1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Shop_Design_for_VS_1920_1080.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="timeEnemy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\timeEnemy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,40 +136,58 @@
   <data name="HERO1_BULLET" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HERO1_BULLET.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SPEED_250_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SPEED_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EnemyBullet14na38" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EnemyBullet14na38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bullet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bullet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HERO1_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HERO1_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sadFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sadFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Enemy2_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enemy2_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sadFace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sadFace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="RESET_250_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RESET_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nazad_250_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nazad_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="triangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KUPIT_250_801" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KUPIT_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enemy1_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enemy1_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="player1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\player1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Enemy2Bullet14na38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Enemy2Bullet14na38.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HERO1_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HERO1_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Bullet2_Skin_32n32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bullet2_Skin_32n32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bullet3_Skin_32n32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bullet3_Skin_32n32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bullet4_Skin_32n32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bullet4_Skin_32n32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="KUPIT_250_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KUPIT_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Корабль" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Корабль.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Пули" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Пули.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="KUPIT_250_802" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KUPIT_250_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

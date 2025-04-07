@@ -38,9 +38,10 @@
             // 
             this.button1.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(707, 429);
+            this.button1.Location = new System.Drawing.Point(943, 528);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 63);
+            this.button1.Size = new System.Drawing.Size(339, 78);
             this.button1.TabIndex = 0;
             this.button1.Text = "Играть ПК";
             this.button1.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             this.btnShop.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.btnShop.ForeColor = System.Drawing.Color.Red;
-            this.btnShop.Location = new System.Drawing.Point(872, 515);
+            this.btnShop.Location = new System.Drawing.Point(1163, 634);
+            this.btnShop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShop.Name = "btnShop";
-            this.btnShop.Size = new System.Drawing.Size(218, 64);
+            this.btnShop.Size = new System.Drawing.Size(291, 79);
             this.btnShop.TabIndex = 1;
             this.btnShop.Text = "Магазин";
             this.btnShop.UseVisualStyleBackColor = true;
@@ -62,9 +64,10 @@
             // 
             this.btnExit.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.Red;
-            this.btnExit.Location = new System.Drawing.Point(872, 605);
+            this.btnExit.Location = new System.Drawing.Point(1163, 745);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(218, 60);
+            this.btnExit.Size = new System.Drawing.Size(291, 74);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Выйти";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@
             // 
             this.button2.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(1009, 429);
+            this.button2.Location = new System.Drawing.Point(1345, 528);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 63);
+            this.button2.Size = new System.Drawing.Size(324, 78);
             this.button2.TabIndex = 3;
             this.button2.Text = "Играть Моб";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,14 +88,15 @@
             // 
             // MainMenuForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Space_Invaders.Properties.Resources.pr;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1924, 1175);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnShop);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
             this.ResumeLayout(false);

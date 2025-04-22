@@ -1,4 +1,4 @@
-﻿namespace Space_Invaders
+﻿namespace SpaceInvaders
 {
     partial class ShopForm
     {
@@ -29,230 +29,254 @@
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.btnBuy = new System.Windows.Forms.Button();
             this.btnBuySpeed = new System.Windows.Forms.Button();
             this.btnResetSpeed = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.PicPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.PicPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(2, 12);
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImage = global::Space_Invaders.Properties.Resources.Nazad_250_80;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(38, 41);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(188, 65);
             this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "Назад";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Location = new System.Drawing.Point(276, 22);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(182, 13);
-            this.lblWelcome.TabIndex = 1;
-            this.lblWelcome.Text = "Добро пожаловать в наш магазин";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // btnBuy
             // 
-            this.btnBuy.Location = new System.Drawing.Point(67, 197);
+            this.btnBuy.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuy.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.btnBuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuy.FlatAppearance.BorderSize = 0;
+            this.btnBuy.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuy.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.btnBuy.Location = new System.Drawing.Point(861, 291);
             this.btnBuy.Name = "btnBuy";
-            this.btnBuy.Size = new System.Drawing.Size(115, 60);
+            this.btnBuy.Size = new System.Drawing.Size(188, 65);
             this.btnBuy.TabIndex = 2;
-            this.btnBuy.Text = "Купить";
-            this.btnBuy.UseVisualStyleBackColor = true;
-            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
+            this.btnBuy.UseVisualStyleBackColor = false;
+            this.btnBuy.Click += new System.EventHandler(this.BuyButton_Click);
             // 
             // btnBuySpeed
             // 
-            this.btnBuySpeed.Location = new System.Drawing.Point(131, 75);
+            this.btnBuySpeed.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuySpeed.BackgroundImage = global::Space_Invaders.Properties.Resources.SPEED_250_80;
+            this.btnBuySpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuySpeed.FlatAppearance.BorderSize = 0;
+            this.btnBuySpeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuySpeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuySpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuySpeed.Location = new System.Drawing.Point(38, 772);
             this.btnBuySpeed.Name = "btnBuySpeed";
-            this.btnBuySpeed.Size = new System.Drawing.Size(105, 56);
+            this.btnBuySpeed.Size = new System.Drawing.Size(188, 65);
             this.btnBuySpeed.TabIndex = 3;
-            this.btnBuySpeed.Text = "speed";
-            this.btnBuySpeed.UseVisualStyleBackColor = true;
-            this.btnBuySpeed.Click += new System.EventHandler(this.btnBuySpeed_Click);
+            this.btnBuySpeed.UseVisualStyleBackColor = false;
+            this.btnBuySpeed.Click += new System.EventHandler(this.BuySpeedButton_Click);
             // 
             // btnResetSpeed
             // 
-            this.btnResetSpeed.Location = new System.Drawing.Point(295, 75);
+            this.btnResetSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.btnResetSpeed.BackgroundImage = global::Space_Invaders.Properties.Resources.RESET_250_80;
+            this.btnResetSpeed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnResetSpeed.FlatAppearance.BorderSize = 0;
+            this.btnResetSpeed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnResetSpeed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnResetSpeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetSpeed.Location = new System.Drawing.Point(38, 877);
             this.btnResetSpeed.Name = "btnResetSpeed";
-            this.btnResetSpeed.Size = new System.Drawing.Size(94, 56);
+            this.btnResetSpeed.Size = new System.Drawing.Size(188, 65);
             this.btnResetSpeed.TabIndex = 4;
-            this.btnResetSpeed.Text = "reset";
-            this.btnResetSpeed.UseVisualStyleBackColor = true;
-            this.btnResetSpeed.Click += new System.EventHandler(this.btnResetSpeed_Click);
+            this.btnResetSpeed.UseVisualStyleBackColor = false;
+            this.btnResetSpeed.Click += new System.EventHandler(this.ResetSpeedButton_Click);
             // 
-            // pictureBox1
+            // button1
             // 
-            this.pictureBox1.Image = global::Space_Invaders.Properties.Resources.Пули;
-            this.pictureBox1.Location = new System.Drawing.Point(964, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 122);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button1.Location = new System.Drawing.Point(861, 971);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 65);
+            this.button1.TabIndex = 21;
+            this.button1.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // button2
             // 
-            this.pictureBox2.Image = global::Space_Invaders.Properties.Resources.Корабль;
-            this.pictureBox2.Location = new System.Drawing.Point(769, 51);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 124);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button2.Location = new System.Drawing.Point(861, 628);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(188, 65);
+            this.button2.TabIndex = 22;
+            this.button2.UseVisualStyleBackColor = false;
             // 
-            // pictureBox3
+            // button3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(-23, -46);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button3.Location = new System.Drawing.Point(1552, 291);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(188, 65);
+            this.button3.TabIndex = 23;
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // pictureBox4
+            // button4
             // 
-            this.pictureBox4.Image = global::Space_Invaders.Properties.Resources.Bullet2_Skin_32n32;
-            this.pictureBox4.Location = new System.Drawing.Point(1658, 49);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(133, 124);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 8;
-            this.pictureBox4.TabStop = false;
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button4.Location = new System.Drawing.Point(1217, 291);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(188, 65);
+            this.button4.TabIndex = 24;
+            this.button4.UseVisualStyleBackColor = false;
             // 
-            // pictureBox5
+            // button5
             // 
-            this.pictureBox5.Image = global::Space_Invaders.Properties.Resources.Bullet4_Skin_32n32;
-            this.pictureBox5.Location = new System.Drawing.Point(1464, 49);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(139, 124);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button5.Location = new System.Drawing.Point(1552, 628);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(188, 65);
+            this.button5.TabIndex = 25;
+            this.button5.UseVisualStyleBackColor = false;
             // 
-            // pictureBox6
+            // button6
             // 
-            this.pictureBox6.Image = global::Space_Invaders.Properties.Resources.Bullet3_Skin_32n32;
-            this.pictureBox6.Location = new System.Drawing.Point(1269, 49);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(142, 124);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 10;
-            this.pictureBox6.TabStop = false;
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button6.Location = new System.Drawing.Point(1217, 628);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(188, 65);
+            this.button6.TabIndex = 26;
+            this.button6.UseVisualStyleBackColor = false;
             // 
-            // PicPanel
+            // button7
             // 
-            this.PicPanel.Controls.Add(this.label1);
-            this.PicPanel.Controls.Add(this.pictureBox8);
-            this.PicPanel.Controls.Add(this.pictureBox7);
-            this.PicPanel.Controls.Add(this.pictureBox2);
-            this.PicPanel.Controls.Add(this.pictureBox4);
-            this.PicPanel.Controls.Add(this.pictureBox5);
-            this.PicPanel.Controls.Add(this.pictureBox6);
-            this.PicPanel.Controls.Add(this.pictureBox1);
-            this.PicPanel.Location = new System.Drawing.Point(23, 304);
-            this.PicPanel.Name = "PicPanel";
-            this.PicPanel.Size = new System.Drawing.Size(1847, 321);
-            this.PicPanel.TabIndex = 11;
-            this.PicPanel.Tag = "";
+            this.button7.BackColor = System.Drawing.Color.Transparent;
+            this.button7.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button7.Location = new System.Drawing.Point(1217, 971);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(188, 65);
+            this.button7.TabIndex = 27;
+            this.button7.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // button8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(74, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 35);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Враг";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Space_Invaders.Properties.Resources.Enemy2_64;
-            this.pictureBox8.Location = new System.Drawing.Point(44, 49);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(135, 124);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 12;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::Space_Invaders.Properties.Resources.Enemy2Bullet14na38;
-            this.pictureBox7.Location = new System.Drawing.Point(1153, 49);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(67, 124);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 11;
-            this.pictureBox7.TabStop = false;
+            this.button8.BackColor = System.Drawing.Color.Transparent;
+            this.button8.BackgroundImage = global::Space_Invaders.Properties.Resources.KUPIT_250_801;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button8.Location = new System.Drawing.Point(1552, 971);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(188, 65);
+            this.button8.TabIndex = 28;
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // ShopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
-            this.Controls.Add(this.PicPanel);
-            this.Controls.Add(this.pictureBox3);
+            this.BackgroundImage = global::Space_Invaders.Properties.Resources.Shop_Design_for_VS_1920_1080;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.Controls.Add(this.button8);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnResetSpeed);
             this.Controls.Add(this.btnBuySpeed);
             this.Controls.Add(this.btnBuy);
-            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnBack);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShopForm";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "ShopForm";
-            this.Load += new System.EventHandler(this.ShopForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.PicPanel.ResumeLayout(false);
-            this.PicPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnBuy;
         private System.Windows.Forms.Button btnBuySpeed;
         private System.Windows.Forms.Button btnResetSpeed;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel PicPanel;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

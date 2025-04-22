@@ -11,40 +11,47 @@ using System.Windows.Forms;
 
 namespace Space_Invaders
 {
-    public partial class Form2 : Form
+    public partial class MobileGame : Form
     {
-        private DateTime lastShootTime = DateTime.MinValue;
-        bool canShoot = true;
-        int shootCooldown = 200;
-
-        bool goLeft, goRight;
-        int playerSpeed = 12;
-        int enemySpeed = 5;
-        int score = 0;
-        int enemyBulletTimer = 300;
-        PictureBox[] sadInvadersArray;
-        bool shooting;
-        bool isGameOver;
+        private DateTime _lastShootTime = DateTime.MinValue;
+        private bool _canShoot = true;
+        private int _shootCooldown = 200;
+        private bool _goLeft;
+        private bool _goRight;
+        private int _playerSpeed = 12;
+        private int _enemySpeed = 5;
+        private int _score = 0;
+        private int _enemyBulletTimer = 300;
+        private PictureBox[] _sadInvadersArray;
+        private bool _shooting;
+        private bool _isGameOver;
+        private int _currentLevel = 1;
+        private int _enemiesPerLevel = 20;
+        private int _enemiesDestroyed = 0;
+        private readonly Random _random = new Random();
 
         // Элементы управления
-        private Button btnLeft, btnRight, btnShoot;
-        private Panel deathPanel;
-        private Button btnRestart, btnExit;
+        private Button _btnLeft;
+        private Button _btnRight;
+        private Button _btnShoot;
+        private Panel _deathPanel;
+        private Button _btnRestart;
+        private Button _btnExit;
 
-        public Form2()
+        public MobileGame()
         {
             InitializeComponent();
-            playerSpeed = Properties.Settings.Default.PlayerSpeed;
-            this.Size = new Size(1920, 1080);
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            _playerSpeed = Properties.Settings.Default.PlayerSpeed;
+            Size = new Size(1920, 1080);
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
-            this.KeyDown += new KeyEventHandler(Form2_KeyDown);
-            this.FormClosed += new FormClosedEventHandler(Form2_FormClosed);
+            KeyDown += Form2_KeyDown;
+            FormClosed += Form2_FormClosed;
 
             CreateControlButtons();
             CreateDeathScreen();
-            gameSetup();
+            GameSetup();
         }
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -59,89 +66,97 @@ namespace Space_Invaders
         private void CreateControlButtons()
         {
             // Кнопка влево
-            btnLeft = new Button
+            _btnLeft = new Button
             {
                 Text = "←",
                 Font = new Font("Arial", 24, FontStyle.Bold),
-                Size = new Size(120, 120), // Новый размер кнопки
+                Size = new Size(120, 120),
                 BackColor = Color.DarkSlateGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60)) // Новый радиус скругления
+                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60))
             };
-            btnLeft.Location = new Point(this.ClientSize.Width - 360, this.ClientSize.Height - 140); // Скорректированное положение
-            btnLeft.FlatAppearance.BorderSize = 0;
-            btnLeft.MouseDown += (s, e) => goLeft = true;
-            btnLeft.MouseUp += (s, e) => goLeft = false;
-            btnLeft.MouseEnter += (s, e) => btnLeft.BackColor = Color.LightSlateGray;
-            btnLeft.MouseLeave += (s, e) => btnLeft.BackColor = Color.DarkSlateGray;
+            _btnLeft.Location = new Point(ClientSize.Width - 360, ClientSize.Height - 140);
+            _btnLeft.FlatAppearance.BorderSize = 0;
+            _btnLeft.MouseDown += (s, e) => _goLeft = true;
+            _btnLeft.MouseUp += (s, e) => _goLeft = false;
+            _btnLeft.MouseEnter += (s, e) => _btnLeft.BackColor = Color.LightSlateGray;
+            _btnLeft.MouseLeave += (s, e) => _btnLeft.BackColor = Color.DarkSlateGray;
 
             // Кнопка стрельбы
-
-
-            btnShoot = new Button
+            _btnShoot = new Button
             {
                 Text = "⚡",
-                Font = new Font("Arial", 32, FontStyle.Bold), // Увеличен размер шрифта
-                Size = new Size(120, 120), // Новый размер кнопки
+                Font = new Font("Arial", 32, FontStyle.Bold),
+                Size = new Size(120, 120),
                 BackColor = Color.Gold,
                 ForeColor = Color.DarkRed,
                 FlatStyle = FlatStyle.Flat,
-                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60)) // Новый радиус скругления
+                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60))
             };
-            btnShoot.Location = new Point(this.ClientSize.Width - 240, this.ClientSize.Height - 140); // Скорректированное положение
-            btnShoot.FlatAppearance.BorderSize = 0;
-            btnShoot.Click += (s, e) =>
+            _btnShoot.Location = new Point(ClientSize.Width - 240, ClientSize.Height - 140);
+            _btnShoot.FlatAppearance.BorderSize = 0;
+            _btnShoot.Click += (s, e) =>
             {
-                // Проверяем, прошло ли достаточно времени с последнего выстрела
-                if ((DateTime.Now - lastShootTime).TotalMilliseconds >= 900)
+                if ((DateTime.Now - _lastShootTime).TotalMilliseconds >= 900 && !_shooting)
                 {
-                    // Обновляем время последнего выстрела
-                    lastShootTime = DateTime.Now;
-                    // Выполняем выстрел
-                    if (!shooting) makeBullet("bullet");
+                    _lastShootTime = DateTime.Now;
+                    _shooting = true;
+                    MakeBullet("bullet");
                 }
-            }; ;
-            btnShoot.MouseEnter += (s, e) => btnShoot.BackColor = Color.Goldenrod;
-            btnShoot.MouseLeave += (s, e) => btnShoot.BackColor = Color.Gold;
+            };
+            _btnShoot.MouseEnter += (s, e) => _btnShoot.BackColor = Color.Goldenrod;
+            _btnShoot.MouseLeave += (s, e) => _btnShoot.BackColor = Color.Gold;
 
             // Кнопка вправо
-            btnRight = new Button
+            _btnRight = new Button
             {
                 Text = "→",
                 Font = new Font("Arial", 24, FontStyle.Bold),
-                Size = new Size(120, 120), // Новый размер кнопки
+                Size = new Size(120, 120),
                 BackColor = Color.DarkSlateGray,
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60)) // Новый радиус скругления
+                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 120, 120, 60, 60))
             };
-            btnRight.Location = new Point(this.ClientSize.Width - 120, this.ClientSize.Height - 140); // Скорректированное положение
-            btnRight.FlatAppearance.BorderSize = 0;
-            btnRight.MouseDown += (s, e) => goRight = true;
-            btnRight.MouseUp += (s, e) => goRight = false;
-            btnRight.MouseEnter += (s, e) => btnRight.BackColor = Color.LightSlateGray;
-            btnRight.MouseLeave += (s, e) => btnRight.BackColor = Color.DarkSlateGray;
+            _btnRight.Location = new Point(ClientSize.Width - 120, ClientSize.Height - 140);
+            _btnRight.FlatAppearance.BorderSize = 0;
+            _btnRight.MouseDown += (s, e) => _goRight = true;
+            _btnRight.MouseUp += (s, e) => _goRight = false;
+            _btnRight.MouseEnter += (s, e) => _btnRight.BackColor = Color.LightSlateGray;
+            _btnRight.MouseLeave += (s, e) => _btnRight.BackColor = Color.DarkSlateGray;
 
-            this.Controls.Add(btnLeft);
-            this.Controls.Add(btnShoot);
-            this.Controls.Add(btnRight);
+            Controls.Add(_btnLeft);
+            Controls.Add(_btnShoot);
+            Controls.Add(_btnRight);
+
+            CreatePlayer();
+        }
+
+        private void CreatePlayer()
+        {
+            player.Size = new Size(150, 130);
+            player.Image = Properties.Resources.HERO1_128;
+            player.SizeMode = PictureBoxSizeMode.StretchImage;
+            player.Location = new Point(
+                ClientSize.Width / 2 - player.Width / 2,
+                ClientSize.Height - player.Height - 10);
+            Controls.Add(player);
         }
 
         private void CreateDeathScreen()
         {
-            deathPanel = new Panel
+            _deathPanel = new Panel
             {
                 Size = new Size(400, 200),
                 BackColor = Color.FromArgb(150, 0, 0, 0),
                 Visible = false
             };
-            deathPanel.Location = new Point(
-                (this.ClientSize.Width - deathPanel.Width) / 2,
-                (this.ClientSize.Height - deathPanel.Height) / 2
-            );
+            _deathPanel.Location = new Point(
+                (ClientSize.Width - _deathPanel.Width) / 2,
+                (ClientSize.Height - _deathPanel.Height) / 2);
 
-            btnRestart = new Button
+            _btnRestart = new Button
             {
                 Text = "Заново",
                 Font = new Font("Arial", 14, FontStyle.Bold),
@@ -151,15 +166,15 @@ namespace Space_Invaders
                 FlatStyle = FlatStyle.Flat,
                 Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 150, 50, 25, 25))
             };
-            btnRestart.Location = new Point(50, 50);
-            btnRestart.Click += (s, e) =>
+            _btnRestart.Location = new Point(50, 50);
+            _btnRestart.Click += (s, e) =>
             {
-                removeAll();
-                gameSetup();
-                deathPanel.Visible = false;
+                RemoveAll();
+                GameSetup();
+                _deathPanel.Visible = false;
             };
 
-            btnExit = new Button
+            _btnExit = new Button
             {
                 Text = "Выйти",
                 Font = new Font("Arial", 14, FontStyle.Bold),
@@ -169,18 +184,18 @@ namespace Space_Invaders
                 FlatStyle = FlatStyle.Flat,
                 Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 150, 50, 25, 25))
             };
-            btnExit.Location = new Point(200, 50);
-            btnExit.Click += (s, e) => this.Close();
+            _btnExit.Location = new Point(200, 50);
+            _btnExit.Click += (s, e) => Close();
 
-            deathPanel.Controls.Add(btnRestart);
-            deathPanel.Controls.Add(btnExit);
-            this.Controls.Add(deathPanel);
-            deathPanel.BringToFront();
+            _deathPanel.Controls.Add(_btnRestart);
+            _deathPanel.Controls.Add(_btnExit);
+            Controls.Add(_deathPanel);
+            _deathPanel.BringToFront();
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            MainMenuForm mainMenu = new MainMenuForm();
+            var mainMenu = new MainMenuForm();
             mainMenu.Show();
         }
 
@@ -188,250 +203,296 @@ namespace Space_Invaders
         {
             if (e.KeyCode == Keys.Escape)
             {
-                this.Close();
+                Close();
             }
         }
 
-        private void gameSetup()
+        private void GameSetup()
         {
-            txtScore.Text = "Score: 0";
-            score = 0;
-            isGameOver = false;
-            enemyBulletTimer = 300;
-            enemySpeed = 10;
-            shooting = false;
-            deathPanel.Visible = false;
-            btnLeft.Visible = true;
-            btnRight.Visible = true;
-            btnShoot.Visible = true;
-            makeInvaders();
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
+            _isGameOver = false;
+            _enemyBulletTimer = 300;
+            _enemySpeed = 5 + _currentLevel;
+            _shooting = false;
+            _deathPanel.Visible = false;
+            _btnLeft.Visible = true;
+            _btnRight.Visible = true;
+            _btnShoot.Visible = true;
+            MakeInvaders();
             gameTimer.Start();
         }
 
-        private void keyisdown(object sender, KeyEventArgs e)
+        private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = true;
+                _goLeft = true;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = true;
+                _goRight = true;
             }
         }
 
-        private void keyisup(object sender, KeyEventArgs e)
+        private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = false;
+                _goLeft = false;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = false;
+                _goRight = false;
             }
-            if (e.KeyCode == Keys.Space && shooting == false)
+            if (e.KeyCode == Keys.Space && !_shooting)
             {
-                shooting = true;
-                makeBullet("bullet");
+                _shooting = true;
+                MakeBullet("bullet");
             }
-            if (e.KeyCode == Keys.Enter && isGameOver == true)
+            if (e.KeyCode == Keys.Enter && _isGameOver)
             {
-                removeAll();
-                gameSetup();
-            }
-        }
-
-        private void makeInvaders()
-        {
-            Image[] enemyImages = new Image[]
-            {
-                Properties.Resources.Enemy1_64,
-                Properties.Resources.Enemy2_64,
-            };
-
-            Random random = new Random();
-            sadInvadersArray = new PictureBox[50];
-            int left = 0;
-
-            for (int i = 0; i < sadInvadersArray.Length; i++)
-            {
-                sadInvadersArray[i] = new PictureBox();
-                sadInvadersArray[i].Size = new Size(150, 150);
-                int randomIndex = random.Next(enemyImages.Length);
-                sadInvadersArray[i].Image = enemyImages[randomIndex];
-                sadInvadersArray[i].Top = 5;
-                sadInvadersArray[i].Tag = "sadInvaders";
-                sadInvadersArray[i].Left = left;
-                sadInvadersArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                this.Controls.Add(sadInvadersArray[i]);
-                left = left - 180;
+                RemoveAll();
+                GameSetup();
             }
         }
 
-
-
-        private void gameOver(string message)
+        private void MakeInvaders()
         {
-            isGameOver = true;
-            gameTimer.Stop();
-            txtScore.Text = "Score: " + score + " " + message;
-            deathPanel.Visible = true;
-            btnLeft.Visible = false;
-            btnRight.Visible = false;
-            btnShoot.Visible = false;
-            goLeft = false;
-            goRight = false;
-            player.Left = this.ClientSize.Width / 2 - player.Width / 2;
-            player.Top = this.ClientSize.Height - player.Height - 10; // Например, на 10 пикселей выше нижней границы экрана
+            _sadInvadersArray = new PictureBox[_enemiesPerLevel];
+            const int left = 100;
+            const int top = 50;
+            const int enemiesInRow = 10;
+            const int horizontalSpacing = 150;
+            const int verticalSpacing = 120;
 
-        }
-
-        private void removeAll()
-        {
-            foreach (PictureBox i in sadInvadersArray)
+            for (int i = 0; i < _sadInvadersArray.Length; i++)
             {
-                this.Controls.Remove(i);
-            }
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox)
+                _sadInvadersArray[i] = new PictureBox
                 {
-                    if ((string)x.Tag == "bullet" || (string)x.Tag == "sadBullet")
-                    {
-                        this.Controls.Remove(x);
-                    }
+                    Size = new Size(100, 100),
+                    Image = _currentLevel % 2 == 0
+                        ? Properties.Resources.Enemy2_64
+                        : Properties.Resources.Enemy1_64,
+                    Top = top + (i / enemiesInRow) * verticalSpacing,
+                    Left = left + (i % enemiesInRow) * horizontalSpacing,
+                    Tag = "sadInvaders",
+                    SizeMode = PictureBoxSizeMode.StretchImage
+                };
+                Controls.Add(_sadInvadersArray[i]);
+            }
+        }
+
+        private void GameOver(string message)
+        {
+            _isGameOver = true;
+            gameTimer.Stop();
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel} - {message}";
+            _deathPanel.Visible = true;
+            _btnLeft.Visible = false;
+            _btnRight.Visible = false;
+            _btnShoot.Visible = false;
+            _goLeft = false;
+            _goRight = false;
+            player.Left = ClientSize.Width / 2 - player.Width / 2;
+            player.Top = ClientSize.Height - player.Height - 10;
+        }
+
+        private void RemoveAll()
+        {
+            foreach (var x in Controls.OfType<PictureBox>().ToList())
+            {
+                if (x.Tag != null && ((string)x.Tag == "sadInvaders" ||
+                                     (string)x.Tag == "bullet" ||
+                                     (string)x.Tag == "sadBullet"))
+                {
+                    Controls.Remove(x);
+                    x.Dispose();
                 }
             }
         }
 
-        private void makeBullet(string bulletTag)
+        private void MakeBullet(string bulletTag, int? enemyLeft = null)
         {
-            Image[] enemyBulletImages = new Image[]
+            var bullet = new PictureBox
             {
-                Properties.Resources.EnemyBullet14na38,
-                Properties.Resources.Enemy2Bullet14na38,
-
-
-
-
+                Size = new Size(10, 40),
+                SizeMode = PictureBoxSizeMode.StretchImage
             };
-
-            Random random = new Random();
-            PictureBox bullet = new PictureBox();
 
             if (bulletTag == "bullet")
             {
                 bullet.Image = Properties.Resources.HERO1_BULLET;
+                bullet.Tag = "bullet";
+                bullet.Left = player.Left + player.Width / 2;
+                bullet.Top = player.Top - 20;
             }
             else if (bulletTag == "sadBullet")
             {
-                int randomIndex = random.Next(enemyBulletImages.Length);
-                bullet.Image = enemyBulletImages[randomIndex];
+                bullet.Image = _currentLevel % 2 == 0
+                    ? Properties.Resources.Enemy2Bullet14na38
+                    : Properties.Resources.EnemyBullet14na38;
+                bullet.Tag = "sadBullet";
+                bullet.Left = enemyLeft ?? _random.Next(0, ClientSize.Width);
+                bullet.Top = (enemyLeft.HasValue ? GetEnemyBottom(enemyLeft.Value) : 0) + 20;
             }
 
-            bullet.Size = new Size(10, 40);
-            bullet.Tag = bulletTag;
-            bullet.Left = player.Left + player.Width / 2;
-
-            if ((string)bullet.Tag == "bullet")
-            {
-                bullet.Top = player.Top - 20;
-            }
-            else if ((string)bullet.Tag == "sadBullet")
-            {
-                bullet.Top = -100;
-            }
-
-            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Controls.Add(bullet);
+            Controls.Add(bullet);
             bullet.BringToFront();
         }
 
-        private void mainGameTimerEvent(object sender, EventArgs e)
+        private int GetEnemyBottom(int xPos)
         {
-            txtScore.Text = "Score: " + score;
-            if (goLeft)
+            foreach (var enemy in _sadInvadersArray)
             {
-                player.Left -= playerSpeed;
-            }
-            if (goRight)
-            {
-                player.Left += playerSpeed;
-            }
-            enemyBulletTimer -= 10;
-            if (enemyBulletTimer < 1)
-            {
-                enemyBulletTimer = 300;
-                makeBullet("sadBullet");
-            }
-
-            foreach (Control x in this.Controls)
-            {
-                if (x is PictureBox && (string)x.Tag == "sadInvaders")
+                if (enemy != null && enemy.Left <= xPos && enemy.Right >= xPos)
                 {
-                    x.Left += enemySpeed;
+                    return enemy.Bottom;
+                }
+            }
+            return 0;
+        }
 
-                    if (x.Left > this.ClientSize.Width)
+        private void NextLevel()
+        {
+            _currentLevel++;
+            _enemiesDestroyed = 0;
+            RemoveAll();
+            GameSetup();
+        }
+
+        private void MainGameTimerEvent(object sender, EventArgs e)
+        {
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
+
+            // Управление игроком с ограничением границ
+            const int margin = 5;
+            if (_goLeft)
+            {
+                player.Left = Math.Max(margin, player.Left - _playerSpeed);
+            }
+            if (_goRight)
+            {
+                player.Left = Math.Min(ClientSize.Width - player.Width - margin, player.Left + _playerSpeed);
+            }
+
+            // Выстрелы врагов
+            _enemyBulletTimer -= 10;
+            if (_enemyBulletTimer < 1 && _sadInvadersArray.Any(x => x != null))
+            {
+                _enemyBulletTimer = 300 - (_currentLevel * 10);
+
+                var activeEnemies = _sadInvadersArray.Where(x => x != null).ToList();
+                if (activeEnemies.Any())
+                {
+                    var shooter = activeEnemies[_random.Next(activeEnemies.Count)];
+                    MakeBullet("sadBullet", shooter.Left + shooter.Width / 2);
+                }
+            }
+
+            // Движение врагов
+            bool changeDirection = false;
+            foreach (var x in _sadInvadersArray)
+            {
+                if (x != null)
+                {
+                    x.Left += _enemySpeed;
+
+                    // Проверка достижения границы
+                    if (x.Right >= ClientSize.Width || x.Left <= 0)
                     {
-                        x.Top += 120;
-                        x.Left = -x.Width;
+                        changeDirection = true;
                     }
 
+                    // Проверка столкновения с игроком
                     if (x.Bounds.IntersectsWith(player.Bounds))
                     {
-                        gameOver("Тебя взяли в плен. Не расстраивайся! Попробуй еще раз");
+                        GameOver("Тебя взяли в плен. Не расстраивайся! Попробуй еще раз");
+                    }
+                }
+            }
+
+            // Изменение направления движения врагов
+            if (changeDirection)
+            {
+                _enemySpeed = -_enemySpeed;
+                foreach (var x in _sadInvadersArray)
+                {
+                    if (x != null)
+                    {
+                        x.Top += 30;
+
+                        // Проверка достижения нижней границы
+                        if (x.Bottom >= player.Top)
+                        {
+                            GameOver("Враги прорвали оборону! Попробуй еще раз");
+                        }
+                    }
+                }
+            }
+
+            // Обработка пуль
+            foreach (var x in Controls.OfType<PictureBox>().ToList())
+            {
+                // Пуля игрока
+                if ((string)x.Tag == "bullet")
+                {
+                    x.Top -= 20;
+
+                    if (x.Top < 0)
+                    {
+                        Controls.Remove(x);
+                        _shooting = false;
+                        x.Dispose();
+                        continue;
                     }
 
-                    foreach (Control y in this.Controls)
+                    foreach (var enemy in _sadInvadersArray)
                     {
-                        if (y is PictureBox && (string)y.Tag == "bullet")
+                        if (enemy != null && x.Bounds.IntersectsWith(enemy.Bounds))
                         {
-                            if (y.Bounds.IntersectsWith(x.Bounds))
+                            Controls.Remove(x);
+                            Controls.Remove(enemy);
+                            _shooting = false;
+                            x.Dispose();
+                            enemy.Dispose();
+                            _sadInvadersArray[Array.IndexOf(_sadInvadersArray, enemy)] = null;
+                            _score += 10;
+                            _enemiesDestroyed++;
+
+                            if (_enemiesDestroyed >= _enemiesPerLevel)
                             {
-                                this.Controls.Remove(x);
-                                this.Controls.Remove(y);
-                                score += 1;
-                                shooting = false;
+                                NextLevel();
+                                return;
                             }
+                            break;
                         }
                     }
                 }
 
-                if (x is PictureBox && (string)x.Tag == "bullet")
+                // Пуля врага
+                if ((string)x.Tag == "sadBullet")
                 {
-                    x.Top -= 20;
-                    if (x.Top < 15)
-                    {
-                        this.Controls.Remove(x);
-                        shooting = false;
-                    }
-                }
+                    x.Top += 15;
 
-                if (x is PictureBox && (string)x.Tag == "sadBullet")
-                {
-                    x.Top += 20;
-                    if (x.Top > this.ClientSize.Height)
+                    if (x.Top > ClientSize.Height)
                     {
-                        this.Controls.Remove(x);
+                        Controls.Remove(x);
+                        x.Dispose();
+                        continue;
                     }
+
                     if (x.Bounds.IntersectsWith(player.Bounds))
                     {
-                        this.Controls.Remove(x);
-                        gameOver("Ты был убит вражеской пулей, попробуй еще разок)");
+                        Controls.Remove(x);
+                        x.Dispose();
+                        GameOver("Ты был убит вражеской пулей, попробуй еще разок)");
                     }
                 }
             }
+        }
 
-            if (score > 15)
-            {
-                enemySpeed = 15;
-            }
-
-            if (score == sadInvadersArray.Length)
-            {
-                gameOver("Воу, ты смог победить!!!");
-            }
+        private void Form2_Load(object sender, EventArgs e)
+        {
         }
     }
 }

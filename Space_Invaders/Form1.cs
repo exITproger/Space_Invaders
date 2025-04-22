@@ -12,20 +12,20 @@ namespace Space_Invaders
 {
     public partial class Form1 : Form
     {
-        bool canShoot = true;
-        int shootCooldown = 200;
-        bool goLeft, goRight;
-        int playerSpeed = 12;
-        int enemySpeed = 5;
-        int score = 0;
-        int enemyBulletTimer = 300;
-        PictureBox[] sadInvadersArray;
-        bool shooting;
-        bool isGameOver;
-        int currentLevel = 1;
-        int enemiesPerLevel = 20;
-        int enemiesDestroyed = 0;
-        Random random = new Random();
+        private bool canShoot = true;
+        private int shootCooldown = 200;
+        private bool goLeft, goRight;
+        private int playerSpeed = 12;
+        private int enemySpeed = 5;
+        private int score = 0;
+        private int enemyBulletTimer = 300;
+        private PictureBox[] sadInvadersArray;
+        private bool shooting;
+        private bool isGameOver;
+        private int currentLevel = 1;
+        private int enemiesPerLevel = 20;
+        private int enemiesDestroyed = 0;
+        private Random random = new Random();
 
         public Form1()
         {
@@ -37,7 +37,7 @@ namespace Space_Invaders
 
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
             this.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
-            gameSetup();
+            GameSetup();
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -54,7 +54,7 @@ namespace Space_Invaders
             }
         }
 
-        private void keyisdown(object sender, KeyEventArgs e)
+        private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
@@ -66,7 +66,7 @@ namespace Space_Invaders
             }
         }
 
-        private void keyisup(object sender, KeyEventArgs e)
+        private void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
@@ -79,16 +79,16 @@ namespace Space_Invaders
             if (e.KeyCode == Keys.Space && shooting == false)
             {
                 shooting = true;
-                makeBullet("bullet");
+                MakeBullet("bullet");
             }
             if (e.KeyCode == Keys.Enter && isGameOver == true)
             {
-                removeAll();
-                gameSetup();
+                RemoveAll();
+                GameSetup();
             }
         }
 
-        private void makeInvaders()
+        private void MakeInvaders()
         {
             Image[] enemyImages = new Image[]
             {
@@ -108,7 +108,6 @@ namespace Space_Invaders
                 sadInvadersArray[i] = new PictureBox();
                 sadInvadersArray[i].Size = new Size(100, 100);
 
-                // Разные враги для разных уровней
                 if (currentLevel % 2 == 0)
                 {
                     sadInvadersArray[i].Image = Properties.Resources.Enemy2_64;
@@ -126,25 +125,25 @@ namespace Space_Invaders
             }
         }
 
-        private void gameSetup()
+        private void GameSetup()
         {
             txtScore.Text = $"Score: {score} | Level: {currentLevel}";
             isGameOver = false;
             enemyBulletTimer = 300;
-            enemySpeed = 5 + currentLevel; // Увеличиваем скорость с каждым уровнем
+            enemySpeed = 5 + currentLevel;
             shooting = false;
-            makeInvaders();
+            MakeInvaders();
             gameTimer.Start();
         }
 
-        private void gameOver(string message)
+        private void GameOver(string message)
         {
             isGameOver = true;
             gameTimer.Stop();
             txtScore.Text = $"Score: {score} | Level: {currentLevel} - {message}";
         }
 
-        private void removeAll()
+        private void RemoveAll()
         {
             foreach (Control x in this.Controls.OfType<PictureBox>().ToList())
             {
@@ -156,7 +155,7 @@ namespace Space_Invaders
             }
         }
 
-        private void makeBullet(string bulletTag, int? enemyLeft = null)
+        private void MakeBullet(string bulletTag, int? enemyLeft = null)
         {
             PictureBox bullet = new PictureBox();
             bullet.Size = new Size(10, 40);
@@ -180,6 +179,38 @@ namespace Space_Invaders
             this.Controls.Add(bullet);
             bullet.BringToFront();
         }
+        private void Keyisdown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = true;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = true;
+            }
+        }
+        private void Keyisup(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Left)
+            {
+                goLeft = false;
+            }
+            if (e.KeyCode == Keys.Right)
+            {
+                goRight = false;
+            }
+            if (e.KeyCode == Keys.Space && shooting == false)
+            {
+                shooting = true;
+                MakeBullet("bullet");
+            }
+            if (e.KeyCode == Keys.Enter && isGameOver == true)
+            {
+                RemoveAll();
+                GameSetup();
+            }
+        }
 
         private int GetEnemyBottom(int xPos)
         {
@@ -193,20 +224,19 @@ namespace Space_Invaders
             return 0;
         }
 
-        private void nextLevel()
+        private void NextLevel()
         {
             currentLevel++;
             enemiesDestroyed = 0;
-            removeAll();
-            gameSetup();
+            RemoveAll();
+            GameSetup();
         }
 
-        private void mainGameTimerEvent(object sender, EventArgs e)
+        private void MainGameTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = $"Score: {score} | Level: {currentLevel}";
 
-            // Управление игроком
-            int margin = 5; // Небольшой отступ от края
+            int margin = 5;
             if (goLeft && player.Left > margin)
             {
                 player.Left = Math.Max(margin, player.Left - playerSpeed);
@@ -216,22 +246,19 @@ namespace Space_Invaders
                 player.Left = Math.Min(this.ClientSize.Width - player.Width - margin, player.Left + playerSpeed);
             }
 
-            // Выстрелы врагов
             enemyBulletTimer -= 10;
             if (enemyBulletTimer < 1 && sadInvadersArray.Any(x => x != null))
             {
-                enemyBulletTimer = 300 - (currentLevel * 10); // Уменьшаем интервал с уровнем
+                enemyBulletTimer = 300 - (currentLevel * 10);
 
-                // Выбираем случайного живого врага для выстрела
                 var activeEnemies = sadInvadersArray.Where(x => x != null).ToList();
                 if (activeEnemies.Any())
                 {
                     var shooter = activeEnemies[random.Next(activeEnemies.Count)];
-                    makeBullet("sadBullet", shooter.Left + shooter.Width / 2);
+                    MakeBullet("sadBullet", shooter.Left + shooter.Width / 2);
                 }
             }
 
-            // Движение врагов
             bool changeDirection = false;
             foreach (PictureBox x in sadInvadersArray)
             {
@@ -239,21 +266,18 @@ namespace Space_Invaders
                 {
                     x.Left += enemySpeed;
 
-                    // Проверка достижения границы
                     if (x.Right >= this.ClientSize.Width || x.Left <= 0)
                     {
                         changeDirection = true;
                     }
 
-                    // Проверка столкновения с игроком
                     if (x.Bounds.IntersectsWith(player.Bounds))
                     {
-                        gameOver("Тебя взяли в плен. Не расстраивайся! Попробуй еще раз");
+                        GameOver("Тебя взяли в плен. Не расстраивайся! Попробуй еще раз");
                     }
                 }
             }
 
-            // Изменение направления движения врагов
             if (changeDirection)
             {
                 enemySpeed = -enemySpeed;
@@ -261,26 +285,22 @@ namespace Space_Invaders
                 {
                     if (x != null)
                     {
-                        x.Top += 30; // Опускаем врагов вниз
+                        x.Top += 30;
 
-                        // Проверка достижения нижней границы
                         if (x.Bottom >= player.Top)
                         {
-                            gameOver("Враги прорвали оборону! Попробуй еще раз");
+                            GameOver("Враги прорвали оборону! Попробуй еще раз");
                         }
                     }
                 }
             }
 
-            // Обработка пуль
             foreach (Control x in this.Controls.OfType<PictureBox>().ToList())
             {
-                // Пуля игрока
                 if ((string)x.Tag == "bullet")
                 {
                     x.Top -= 20;
 
-                    // Удаление пули при выходе за границы
                     if (x.Top < 0)
                     {
                         this.Controls.Remove(x);
@@ -289,7 +309,6 @@ namespace Space_Invaders
                         continue;
                     }
 
-                    // Проверка попадания во врага
                     foreach (PictureBox enemy in sadInvadersArray)
                     {
                         if (enemy != null && x.Bounds.IntersectsWith(enemy.Bounds))
@@ -303,10 +322,9 @@ namespace Space_Invaders
                             score += 10;
                             enemiesDestroyed++;
 
-                            // Проверка завершения уровня
                             if (enemiesDestroyed >= enemiesPerLevel)
                             {
-                                nextLevel();
+                                NextLevel();
                                 return;
                             }
                             break;
@@ -314,12 +332,10 @@ namespace Space_Invaders
                     }
                 }
 
-                // Пуля врага
                 if ((string)x.Tag == "sadBullet")
                 {
                     x.Top += 15;
 
-                    // Удаление пули при выходе за границы
                     if (x.Top > this.ClientSize.Height)
                     {
                         this.Controls.Remove(x);
@@ -327,12 +343,11 @@ namespace Space_Invaders
                         continue;
                     }
 
-                    // Проверка попадания в игрока
                     if (x.Bounds.IntersectsWith(player.Bounds))
                     {
                         this.Controls.Remove(x);
                         x.Dispose();
-                        gameOver("Ты был убит вражеской пулей, попробуй еще разок)");
+                        GameOver("Ты был убит вражеской пулей, попробуй еще разок)");
                     }
                 }
             }

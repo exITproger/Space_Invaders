@@ -53,10 +53,10 @@
             // 
             // player
             // 
-            this.player.Image = global::Space_Invaders.Properties.Resources.HERO1_128;
-            this.player.Location = new System.Drawing.Point(597, 901);
+            this.player.Image = global::Space_Invaders.Properties.Resources.hero2n;
+            this.player.Location = new System.Drawing.Point(597, 899);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(152, 128);
+            this.player.Size = new System.Drawing.Size(169, 130);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player.TabIndex = 0;
             this.player.TabStop = false;

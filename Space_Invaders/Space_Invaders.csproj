@@ -202,5 +202,14 @@
   <ItemGroup>
     <None Include="Resources\KUPIT_250_80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero2n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-Photoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\фонДД.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -84,5 +84,10 @@ namespace SpaceInvaders
             Space_Invaders.Properties.Settings.Default.Save();
             MessageBox.Show("Скорость сброшена до стандартного значения!");
         }
+
+        private void ShopForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

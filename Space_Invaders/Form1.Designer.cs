@@ -36,11 +36,12 @@
             this.SuspendLayout();
             // 
             // txtScore
-            // 
+            //
             this.txtScore.AutoSize = true;
             this.txtScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtScore.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.txtScore.Location = new System.Drawing.Point(47, 914);
+            this.txtScore.Location = new System.Drawing.Point(63, 1125);
+            this.txtScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtScore.Name = "txtScore";
             this.txtScore.Size = new System.Drawing.Size(69, 26);
             this.txtScore.TabIndex = 1;
@@ -53,22 +54,28 @@
             // 
             // player
             // 
+            this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.Image = global::Space_Invaders.Properties.Resources.HERO1_128;
-            this.player.Location = new System.Drawing.Point(597, 901);
+            this.player.Location = new System.Drawing.Point(796, 1109);
+            this.player.Margin = new System.Windows.Forms.Padding(4);
             this.player.Name = "player";
-            this.player.Size = new System.Drawing.Size(152, 128);
+            this.player.Size = new System.Drawing.Size(203, 158);
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.player.TabIndex = 0;
             this.player.TabStop = false;
             // 
             // DesktopGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.BackgroundImage = global::Space_Invaders.Properties.Resources.Main1_Design;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.player);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DesktopGame";
             this.Text = "Game";
             this.Load += new System.EventHandler(this.Form1_Load);

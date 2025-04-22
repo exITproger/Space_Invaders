@@ -175,6 +175,9 @@
   <data name="HERO1_BULLET" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HERO1_BULLET.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vr_px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vr_px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Enemy2_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enemy2_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,10 +202,13 @@
   <data name="фонДД" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\фонДД.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Main1_Design" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main1_Design.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Shop_Design_for_VS_1920_1080" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Shop_Design_for_VS_1920_1080.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vr_px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vr_px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Main1_Design1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Main1_Design.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

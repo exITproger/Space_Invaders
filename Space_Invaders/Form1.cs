@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Space_Invaders
 {
-    public partial class Form1 : Form
+    public partial class DesktopGame : Form
     {
         private bool _canShoot = true;
         private int _shootCooldown = 200;
@@ -28,7 +28,7 @@ namespace Space_Invaders
         private int _enemiesDestroyed = 0;
         private Random _random = new Random();
 
-        public Form1()
+        public DesktopGame()
         {
             InitializeComponent();
             _playerSpeed = Properties.Settings.Default.PlayerSpeed;

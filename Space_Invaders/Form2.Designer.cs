@@ -1,6 +1,6 @@
 ﻿namespace Space_Invaders
 {
-    partial class Form2
+    partial class MobileGame
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -61,7 +61,7 @@
             this.player.TabIndex = 0;
             this.player.TabStop = false;
             // 
-            // Form2
+            // MobileGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -69,8 +69,8 @@
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.txtScore);
             this.Controls.Add(this.player);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.Name = "MobileGame";
+            this.Text = "Game";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);

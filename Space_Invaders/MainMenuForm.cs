@@ -18,15 +18,15 @@ namespace Space_Invaders
         public MainMenuForm()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
             // Инициализация и воспроизведение музыки из ресурсов
 
         }
         private void PlayDesktopButton_Click(object sender, EventArgs e)
         {
-            Form1 gameForm = new Form1();
+            DesktopGame gameForm = new DesktopGame();
             gameForm.Show();
             this.Hide();
         }
@@ -45,7 +45,7 @@ namespace Space_Invaders
 
         private void PlayMobileButton_Click(object sender, EventArgs e)
         {
-            Form2 gameForm = new Form2();
+            MobileGame gameForm = new MobileGame();
             gameForm.Show();
             this.Hide();
         }

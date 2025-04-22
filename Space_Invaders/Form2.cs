@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Space_Invaders
 {
-    public partial class Form2 : Form
+    public partial class MobileGame : Form
     {
         private DateTime _lastShootTime = DateTime.MinValue;
         private bool _canShoot = true;
@@ -38,7 +38,7 @@ namespace Space_Invaders
         private Button _btnRestart;
         private Button _btnExit;
 
-        public Form2()
+        public MobileGame()
         {
             InitializeComponent();
             _playerSpeed = Properties.Settings.Default.PlayerSpeed;

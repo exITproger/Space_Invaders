@@ -213,6 +213,16 @@ namespace Space_Invaders.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_Photoroom {
+            get {
+                object obj = ResourceManager.GetObject("logo-Photoroom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Nazad_250_80 {
             get {
                 object obj = ResourceManager.GetObject("Nazad_250_80", resourceCulture);

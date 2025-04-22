@@ -12,25 +12,26 @@ namespace Space_Invaders
 {
     public partial class Form1 : Form
     {
-        private bool canShoot = true;
-        private int shootCooldown = 200;
-        private bool goLeft, goRight;
-        private int playerSpeed = 12;
-        private int enemySpeed = 5;
-        private int score = 0;
-        private int enemyBulletTimer = 300;
-        private PictureBox[] sadInvadersArray;
-        private bool shooting;
-        private bool isGameOver;
-        private int currentLevel = 1;
-        private int enemiesPerLevel = 20;
-        private int enemiesDestroyed = 0;
-        private Random random = new Random();
+        private bool _canShoot = true;
+        private int _shootCooldown = 200;
+        private bool _goLeft;
+        private bool _goRight;
+        private int _playerSpeed = 12;
+        private int _enemySpeed = 5;
+        private int _score = 0;
+        private int _enemyBulletTimer = 300;
+        private PictureBox[] _sadInvadersArray;
+        private bool _shooting;
+        private bool _isGameOver;
+        private int _currentLevel = 1;
+        private int _enemiesPerLevel = 20;
+        private int _enemiesDestroyed = 0;
+        private Random _random = new Random();
 
         public Form1()
         {
             InitializeComponent();
-            playerSpeed = Properties.Settings.Default.PlayerSpeed;
+            _playerSpeed = Properties.Settings.Default.PlayerSpeed;
             this.Size = new Size(1920, 1080);
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
@@ -58,11 +59,11 @@ namespace Space_Invaders
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = true;
+                _goLeft = true;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = true;
+                _goRight = true;
             }
         }
 
@@ -70,18 +71,18 @@ namespace Space_Invaders
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = false;
+                _goLeft = false;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = false;
+                _goRight = false;
             }
-            if (e.KeyCode == Keys.Space && shooting == false)
+            if (e.KeyCode == Keys.Space && _shooting == false)
             {
-                shooting = true;
+                _shooting = true;
                 MakeBullet("bullet");
             }
-            if (e.KeyCode == Keys.Enter && isGameOver == true)
+            if (e.KeyCode == Keys.Enter && _isGameOver == true)
             {
                 RemoveAll();
                 GameSetup();
@@ -96,51 +97,51 @@ namespace Space_Invaders
                 Properties.Resources.Enemy2_64,
             };
 
-            sadInvadersArray = new PictureBox[enemiesPerLevel];
+            _sadInvadersArray = new PictureBox[_enemiesPerLevel];
             int left = 100;
             int top = 50;
             int enemiesInRow = 10;
             int horizontalSpacing = 150;
             int verticalSpacing = 120;
 
-            for (int i = 0; i < sadInvadersArray.Length; i++)
+            for (int i = 0; i < _sadInvadersArray.Length; i++)
             {
-                sadInvadersArray[i] = new PictureBox();
-                sadInvadersArray[i].Size = new Size(100, 100);
+                _sadInvadersArray[i] = new PictureBox();
+                _sadInvadersArray[i].Size = new Size(100, 100);
 
-                if (currentLevel % 2 == 0)
+                if (_currentLevel % 2 == 0)
                 {
-                    sadInvadersArray[i].Image = Properties.Resources.Enemy2_64;
+                    _sadInvadersArray[i].Image = Properties.Resources.Enemy2_64;
                 }
                 else
                 {
-                    sadInvadersArray[i].Image = Properties.Resources.Enemy1_64;
+                    _sadInvadersArray[i].Image = Properties.Resources.Enemy1_64;
                 }
 
-                sadInvadersArray[i].Top = top + (i / enemiesInRow) * verticalSpacing;
-                sadInvadersArray[i].Left = left + (i % enemiesInRow) * horizontalSpacing;
-                sadInvadersArray[i].Tag = "sadInvaders";
-                sadInvadersArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
-                this.Controls.Add(sadInvadersArray[i]);
+                _sadInvadersArray[i].Top = top + (i / enemiesInRow) * verticalSpacing;
+                _sadInvadersArray[i].Left = left + (i % enemiesInRow) * horizontalSpacing;
+                _sadInvadersArray[i].Tag = "sadInvaders";
+                _sadInvadersArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                this.Controls.Add(_sadInvadersArray[i]);
             }
         }
 
         private void GameSetup()
         {
-            txtScore.Text = $"Score: {score} | Level: {currentLevel}";
-            isGameOver = false;
-            enemyBulletTimer = 300;
-            enemySpeed = 5 + currentLevel;
-            shooting = false;
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
+            _isGameOver = false;
+            _enemyBulletTimer = 300;
+            _enemySpeed = 5 + _currentLevel;
+            _shooting = false;
             MakeInvaders();
             gameTimer.Start();
         }
 
         private void GameOver(string message)
         {
-            isGameOver = true;
+            _isGameOver = true;
             gameTimer.Stop();
-            txtScore.Text = $"Score: {score} | Level: {currentLevel} - {message}";
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel} - {message}";
         }
 
         private void RemoveAll()
@@ -169,9 +170,9 @@ namespace Space_Invaders
             }
             else if (bulletTag == "sadBullet")
             {
-                bullet.Image = currentLevel % 2 == 0 ? Properties.Resources.Enemy2Bullet14na38 : Properties.Resources.EnemyBullet14na38;
+                bullet.Image = _currentLevel % 2 == 0 ? Properties.Resources.Enemy2Bullet14na38 : Properties.Resources.EnemyBullet14na38;
                 bullet.Tag = "sadBullet";
-                bullet.Left = enemyLeft ?? random.Next(0, this.ClientSize.Width);
+                bullet.Left = enemyLeft ?? _random.Next(0, this.ClientSize.Width);
                 bullet.Top = (enemyLeft.HasValue ? GetEnemyBottom(enemyLeft.Value) : 0) + 20;
             }
 
@@ -183,29 +184,29 @@ namespace Space_Invaders
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = true;
+                _goLeft = true;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = true;
+                _goRight = true;
             }
         }
         private void Keyisup(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
-                goLeft = false;
+                _goLeft = false;
             }
             if (e.KeyCode == Keys.Right)
             {
-                goRight = false;
+                _goRight = false;
             }
-            if (e.KeyCode == Keys.Space && shooting == false)
+            if (e.KeyCode == Keys.Space && _shooting == false)
             {
-                shooting = true;
+                _shooting = true;
                 MakeBullet("bullet");
             }
-            if (e.KeyCode == Keys.Enter && isGameOver == true)
+            if (e.KeyCode == Keys.Enter && _isGameOver == true)
             {
                 RemoveAll();
                 GameSetup();
@@ -214,7 +215,7 @@ namespace Space_Invaders
 
         private int GetEnemyBottom(int xPos)
         {
-            foreach (PictureBox enemy in sadInvadersArray)
+            foreach (PictureBox enemy in _sadInvadersArray)
             {
                 if (enemy != null && enemy.Left <= xPos && enemy.Right >= xPos)
                 {
@@ -226,45 +227,45 @@ namespace Space_Invaders
 
         private void NextLevel()
         {
-            currentLevel++;
-            enemiesDestroyed = 0;
+            _currentLevel++;
+            _enemiesDestroyed = 0;
             RemoveAll();
             GameSetup();
         }
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
-            txtScore.Text = $"Score: {score} | Level: {currentLevel}";
+            txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
 
             int margin = 5;
-            if (goLeft && player.Left > margin)
+            if (_goLeft && player.Left > margin)
             {
-                player.Left = Math.Max(margin, player.Left - playerSpeed);
+                player.Left = Math.Max(margin, player.Left - _playerSpeed);
             }
-            if (goRight && player.Right < this.ClientSize.Width - margin)
+            if (_goRight && player.Right < this.ClientSize.Width - margin)
             {
-                player.Left = Math.Min(this.ClientSize.Width - player.Width - margin, player.Left + playerSpeed);
+                player.Left = Math.Min(this.ClientSize.Width - player.Width - margin, player.Left + _playerSpeed);
             }
 
-            enemyBulletTimer -= 10;
-            if (enemyBulletTimer < 1 && sadInvadersArray.Any(x => x != null))
+            _enemyBulletTimer -= 10;
+            if (_enemyBulletTimer < 1 && _sadInvadersArray.Any(x => x != null))
             {
-                enemyBulletTimer = 300 - (currentLevel * 10);
+                _enemyBulletTimer = 300 - (_currentLevel * 10);
 
-                var activeEnemies = sadInvadersArray.Where(x => x != null).ToList();
+                var activeEnemies = _sadInvadersArray.Where(x => x != null).ToList();
                 if (activeEnemies.Any())
                 {
-                    var shooter = activeEnemies[random.Next(activeEnemies.Count)];
+                    var shooter = activeEnemies[_random.Next(activeEnemies.Count)];
                     MakeBullet("sadBullet", shooter.Left + shooter.Width / 2);
                 }
             }
 
             bool changeDirection = false;
-            foreach (PictureBox x in sadInvadersArray)
+            foreach (PictureBox x in _sadInvadersArray)
             {
                 if (x != null)
                 {
-                    x.Left += enemySpeed;
+                    x.Left += _enemySpeed;
 
                     if (x.Right >= this.ClientSize.Width || x.Left <= 0)
                     {
@@ -280,8 +281,8 @@ namespace Space_Invaders
 
             if (changeDirection)
             {
-                enemySpeed = -enemySpeed;
-                foreach (PictureBox x in sadInvadersArray)
+                _enemySpeed = -_enemySpeed;
+                foreach (PictureBox x in _sadInvadersArray)
                 {
                     if (x != null)
                     {
@@ -304,25 +305,25 @@ namespace Space_Invaders
                     if (x.Top < 0)
                     {
                         this.Controls.Remove(x);
-                        shooting = false;
+                        _shooting = false;
                         x.Dispose();
                         continue;
                     }
 
-                    foreach (PictureBox enemy in sadInvadersArray)
+                    foreach (PictureBox enemy in _sadInvadersArray)
                     {
                         if (enemy != null && x.Bounds.IntersectsWith(enemy.Bounds))
                         {
                             this.Controls.Remove(x);
                             this.Controls.Remove(enemy);
-                            shooting = false;
+                            _shooting = false;
                             x.Dispose();
                             enemy.Dispose();
-                            sadInvadersArray[Array.IndexOf(sadInvadersArray, enemy)] = null;
-                            score += 10;
-                            enemiesDestroyed++;
+                            _sadInvadersArray[Array.IndexOf(_sadInvadersArray, enemy)] = null;
+                            _score += 10;
+                            _enemiesDestroyed++;
 
-                            if (enemiesDestroyed >= enemiesPerLevel)
+                            if (_enemiesDestroyed >= _enemiesPerLevel)
                             {
                                 NextLevel();
                                 return;

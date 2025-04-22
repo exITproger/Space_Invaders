@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceInvaders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +50,9 @@ namespace Space_Invaders
             this.Hide();
         }
 
-       
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

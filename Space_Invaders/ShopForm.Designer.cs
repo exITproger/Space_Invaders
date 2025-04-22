@@ -1,4 +1,4 @@
-﻿namespace Space_Invaders
+﻿namespace SpaceInvaders
 {
     partial class ShopForm
     {
@@ -18,10 +18,10 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
-        } 
+        }
 
         #region Windows Form Designer generated code
-         
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -58,7 +58,7 @@
             this.btnBack.Size = new System.Drawing.Size(188, 65);
             this.btnBack.TabIndex = 0;
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // btnBuy
             // 
@@ -75,7 +75,7 @@
             this.btnBuy.Size = new System.Drawing.Size(188, 65);
             this.btnBuy.TabIndex = 2;
             this.btnBuy.UseVisualStyleBackColor = false;
-            this.btnBuy.Click += new System.EventHandler(this.btnBuy_Click);
+            this.btnBuy.Click += new System.EventHandler(this.BuyButton_Click);
             // 
             // btnBuySpeed
             // 
@@ -91,7 +91,7 @@
             this.btnBuySpeed.Size = new System.Drawing.Size(188, 65);
             this.btnBuySpeed.TabIndex = 3;
             this.btnBuySpeed.UseVisualStyleBackColor = false;
-            this.btnBuySpeed.Click += new System.EventHandler(this.btnBuySpeed_Click);
+            this.btnBuySpeed.Click += new System.EventHandler(this.BuySpeedButton_Click);
             // 
             // btnResetSpeed
             // 
@@ -107,7 +107,7 @@
             this.btnResetSpeed.Size = new System.Drawing.Size(188, 65);
             this.btnResetSpeed.TabIndex = 4;
             this.btnResetSpeed.UseVisualStyleBackColor = false;
-            this.btnResetSpeed.Click += new System.EventHandler(this.btnResetSpeed_Click);
+            this.btnResetSpeed.Click += new System.EventHandler(this.ResetSpeedButton_Click);
             // 
             // button1
             // 
@@ -261,7 +261,6 @@
             this.Name = "ShopForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "ShopForm";
-            this.Load += new System.EventHandler(this.ShopForm_Load);
             this.ResumeLayout(false);
 
         }

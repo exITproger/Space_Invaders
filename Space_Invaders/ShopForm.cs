@@ -57,6 +57,7 @@ namespace SpaceInvaders
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
         private void BuySpeedButton_Click(object sender, EventArgs e)
         {
             int newSpeed = Space_Invaders.Properties.Settings.Default.PlayerSpeed + 1;
@@ -71,6 +72,7 @@ namespace SpaceInvaders
             Space_Invaders.Properties.Settings.Default.Save();
             MessageBox.Show($"Скорость увеличена! Новая скорость: {newSpeed}");
         }
+
         /// <summary>
         /// сброс накопленной скорости
         /// </summary>

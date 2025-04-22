@@ -258,27 +258,43 @@ namespace Space_Invaders
 
         private void MakeInvaders()
         {
+            Image[] enemyImages = new Image[]
+           {
+                Properties.Resources.Enemy1_64,
+                Properties.Resources.Enemy2_64,
+                Properties.Resources.vr_px
+           };
+
             _sadInvadersArray = new PictureBox[_enemiesPerLevel];
-            const int left = 100;
-            const int top = 50;
-            const int enemiesInRow = 10;
-            const int horizontalSpacing = 150;
-            const int verticalSpacing = 120;
+            int left = 100;
+            int top = 50;
+            int enemiesInRow = 10;
+            int horizontalSpacing = 150;
+            int verticalSpacing = 120;
 
             for (int i = 0; i < _sadInvadersArray.Length; i++)
             {
-                _sadInvadersArray[i] = new PictureBox
+                _sadInvadersArray[i] = new PictureBox();
+                _sadInvadersArray[i].Size = new Size(100, 100);
+
+                if (_currentLevel % 3 == 0)
                 {
-                    Size = new Size(100, 100),
-                    Image = _currentLevel % 2 == 0
-                        ? Properties.Resources.Enemy2_64
-                        : Properties.Resources.Enemy1_64,
-                    Top = top + (i / enemiesInRow) * verticalSpacing,
-                    Left = left + (i % enemiesInRow) * horizontalSpacing,
-                    Tag = "sadInvaders",
-                    SizeMode = PictureBoxSizeMode.StretchImage
-                };
-                Controls.Add(_sadInvadersArray[i]);
+                    _sadInvadersArray[i].Image = Properties.Resources.Enemy1_64;
+                }
+                else if (_currentLevel % 2 == 0)
+                {
+                    _sadInvadersArray[i].Image = Properties.Resources.Enemy2_64;
+                }
+                else
+                {
+                    _sadInvadersArray[i].Image = Properties.Resources.vr_px;
+                }
+
+                _sadInvadersArray[i].Top = top + (i / enemiesInRow) * verticalSpacing;
+                _sadInvadersArray[i].Left = left + (i % enemiesInRow) * horizontalSpacing;
+                _sadInvadersArray[i].Tag = "sadInvaders";
+                _sadInvadersArray[i].SizeMode = PictureBoxSizeMode.StretchImage;
+                this.Controls.Add(_sadInvadersArray[i]);
             }
         }
 

@@ -95,6 +95,7 @@ namespace Space_Invaders
             {
                 Properties.Resources.Enemy1_64,
                 Properties.Resources.Enemy2_64,
+                Properties.Resources.vr_px
             };
 
             _sadInvadersArray = new PictureBox[_enemiesPerLevel];
@@ -109,13 +110,17 @@ namespace Space_Invaders
                 _sadInvadersArray[i] = new PictureBox();
                 _sadInvadersArray[i].Size = new Size(100, 100);
 
-                if (_currentLevel % 2 == 0)
+                if (_currentLevel %3 == 0)
+                {
+                    _sadInvadersArray[i].Image = Properties.Resources.Enemy1_64;
+                }
+                else if (_currentLevel % 2 == 0)
                 {
                     _sadInvadersArray[i].Image = Properties.Resources.Enemy2_64;
                 }
                 else
                 {
-                    _sadInvadersArray[i].Image = Properties.Resources.Enemy1_64;
+                    _sadInvadersArray[i].Image = Properties.Resources.vr_px;
                 }
 
                 _sadInvadersArray[i].Top = top + (i / enemiesInRow) * verticalSpacing;

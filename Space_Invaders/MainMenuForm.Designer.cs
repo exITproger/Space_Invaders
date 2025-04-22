@@ -44,7 +44,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Играть ПК";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.PlayDesktopButton_Click);
             // 
             // btnShop
             // 
@@ -56,7 +56,7 @@
             this.btnShop.TabIndex = 1;
             this.btnShop.Text = "Магазин";
             this.btnShop.UseVisualStyleBackColor = true;
-            this.btnShop.Click += new System.EventHandler(this.btnShop_Click);
+            this.btnShop.Click += new System.EventHandler(this.OpenShopButton_Click);
             // 
             // btnExit
             // 
@@ -68,7 +68,7 @@
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Выйти";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // button2
             // 
@@ -80,7 +80,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Играть Моб";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.PlayMobileButton_Click);
             // 
             // MainMenuForm
             // 

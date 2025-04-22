@@ -49,7 +49,7 @@
             // gameTimer
             // 
             this.gameTimer.Interval = 20;
-            this.gameTimer.Tick += new System.EventHandler(this.mainGameTimerEvent);
+            this.gameTimer.Tick += new System.EventHandler(this.MainGameTimerEvent);
             // 
             // player
             // 
@@ -72,8 +72,8 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

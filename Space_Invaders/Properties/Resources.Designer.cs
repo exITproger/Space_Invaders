@@ -313,6 +313,16 @@ namespace Space_Invaders.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vr_px {
+            get {
+                object obj = ResourceManager.GetObject("vr_px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Корабль {
             get {
                 object obj = ResourceManager.GetObject("Корабль", resourceCulture);

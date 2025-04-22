@@ -214,5 +214,11 @@
   <ItemGroup>
     <None Include="Resources\logo-Photoroom.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\враг_пиксель.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vr_px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

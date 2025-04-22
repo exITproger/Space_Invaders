@@ -53,7 +53,7 @@
             // 
             // player
             // 
-            this.player.Image = global::Space_Invaders.Properties.Resources.hero2n;
+            this.player.Image = global::Space_Invaders.Properties.Resources.HERO1_128;
             this.player.Location = new System.Drawing.Point(597, 899);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(169, 130);

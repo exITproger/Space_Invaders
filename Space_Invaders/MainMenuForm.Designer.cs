@@ -28,27 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPlayDesk = new System.Windows.Forms.Button();
             this.btnShop = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPlayMob = new System.Windows.Forms.Button();
+            this.picFon = new System.Windows.Forms.PictureBox();
             this.picLogo = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // play Desktop
             // 
-            this.button1.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(707, 429);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(254, 63);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Играть ПК";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.PlayDesktopButton_Click);
+            this.btnPlayDesk.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.btnPlayDesk.FlatAppearance.BorderSize = 10;
+            this.btnPlayDesk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Olive;
+            this.btnPlayDesk.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayDesk.ForeColor = System.Drawing.Color.Red;
+            this.btnPlayDesk.Location = new System.Drawing.Point(707, 429);
+            this.btnPlayDesk.Name = "button1";
+            this.btnPlayDesk.Size = new System.Drawing.Size(254, 63);
+            this.btnPlayDesk.TabIndex = 0;
+            this.btnPlayDesk.Text = "Играть ПК";
+            this.btnPlayDesk.UseVisualStyleBackColor = true;
+            this.btnPlayDesk.Click += new System.EventHandler(this.PlayDesktopButton_Click);
             // 
             // btnShop
             // 
@@ -74,29 +77,29 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // button2
+            // play mobile
             // 
-            this.button2.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(1009, 429);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 63);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Играть Моб";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.PlayMobileButton_Click);
+            this.btnPlayMob.Font = new System.Drawing.Font("Showcard Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlayMob.ForeColor = System.Drawing.Color.Red;
+            this.btnPlayMob.Location = new System.Drawing.Point(1009, 429);
+            this.btnPlayMob.Name = "button2";
+            this.btnPlayMob.Size = new System.Drawing.Size(243, 63);
+            this.btnPlayMob.TabIndex = 3;
+            this.btnPlayMob.Text = "Играть Моб";
+            this.btnPlayMob.UseVisualStyleBackColor = true;
+            this.btnPlayMob.Click += new System.EventHandler(this.PlayMobileButton_Click);
             // 
-            // pictureBox1
+            // picFon
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.BackgroundImage = global::Space_Invaders.Properties.Resources.фонДД;
-            this.pictureBox1.Image = global::Space_Invaders.Properties.Resources.image_Photoroom;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 122);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 201);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.picFon.BackColor = System.Drawing.Color.Black;
+            this.picFon.BackgroundImage = global::Space_Invaders.Properties.Resources.фонДД;
+            this.picFon.Image = global::Space_Invaders.Properties.Resources.image_Photoroom;
+            this.picFon.Location = new System.Drawing.Point(2, 122);
+            this.picFon.Name = "pictureBox1";
+            this.picFon.Size = new System.Drawing.Size(170, 201);
+            this.picFon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFon.TabIndex = 4;
+            this.picFon.TabStop = false;
             // 
             // picLogo
             // 
@@ -116,15 +119,15 @@
             this.BackgroundImage = global::Space_Invaders.Properties.Resources.pr;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.picLogo);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.picFon);
+            this.Controls.Add(this.btnPlayMob);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnShop);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnPlayDesk);
             this.Name = "MainMenuForm";
             this.Text = "MainMenuForm";
             this.Load += new System.EventHandler(this.MainMenuForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -132,11 +135,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPlayDesk;
         private System.Windows.Forms.Button btnShop;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPlayMob;
+        private System.Windows.Forms.PictureBox picFon;
         private System.Windows.Forms.PictureBox picLogo;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceInvaders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,36 +18,41 @@ namespace Space_Invaders
         public MainMenuForm()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
+            FormBorderStyle = FormBorderStyle.None;
+            WindowState = FormWindowState.Maximized;
 
             // Инициализация и воспроизведение музыки из ресурсов
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void PlayDesktopButton_Click(object sender, EventArgs e)
         {
-            Form1 gameForm = new Form1();
+            DesktopGame gameForm = new DesktopGame();
             gameForm.Show();
             this.Hide();
         }
 
-        private void btnShop_Click(object sender, EventArgs e)
+        private void OpenShopButton_Click(object sender, EventArgs e)
         {
             ShopForm shopForm = new ShopForm(); // Создаем экземпляр формы магазина
             shopForm.Show(); // Открываем форму магазина
             this.Hide(); // Скрываем главное меню (опционально)
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void PlayMobileButton_Click(object sender, EventArgs e)
         {
-            Form2 gameForm = new Form2();
+            MobileGame gameForm = new MobileGame();
             gameForm.Show();
             this.Hide();
+        }
+
+        private void MainMenuForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

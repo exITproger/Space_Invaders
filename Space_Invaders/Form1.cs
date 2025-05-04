@@ -15,6 +15,8 @@ namespace Space_Invaders
     /// </summary>
     public partial class DesktopGame : Form
     {
+        public bool GoLeft => _goLeft;
+        public bool GoRight => _goRight;
         /// <summary>Время последнего выстрела игрока.</summary>
         private DateTime _lastShootTime = DateTime.MinValue;
 
@@ -80,7 +82,7 @@ namespace Space_Invaders
         /// <summary>
         /// Обработчик закрытия формы. Возвращает игрока в главное меню.
         /// </summary>
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        public void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             MainMenuForm mainMenu = new MainMenuForm();
             mainMenu.Show();
@@ -88,7 +90,7 @@ namespace Space_Invaders
         /// <summary>
         /// Обработчик нажатия клавиши Escape. Закрывает игру.
         /// </summary>
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
@@ -98,7 +100,7 @@ namespace Space_Invaders
         /// <summary>
         /// Обрабатывает удержание клавиши влево или вправо.
         /// </summary>
-        private void KeyIsDown(object sender, KeyEventArgs e)
+        public void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
@@ -112,7 +114,7 @@ namespace Space_Invaders
         /// <summary>
         /// Обрабатывает отпускание клавиши: стрелки, пробел (выстрел), Enter (рестарт игры).
         /// </summary>
-        private void KeyIsUp(object sender, KeyEventArgs e)
+        public void KeyIsUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
             {
@@ -136,7 +138,7 @@ namespace Space_Invaders
         /// <summary>
         /// Создаёт массив врагов в зависимости от уровня.
         /// </summary>
-        private void MakeInvaders()
+        public void MakeInvaders()
         {
             Image[] enemyImages = new Image[]
             {
@@ -180,7 +182,7 @@ namespace Space_Invaders
         /// <summary>
         /// Настраивает игру перед началом или перезапуском.
         /// </summary>
-        private void GameSetup()
+        public void GameSetup()
         {
             txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
             _isGameOver = false;
@@ -194,7 +196,7 @@ namespace Space_Invaders
         /// Завершает игру и отображает итоговое сообщение.
         /// </summary>
         /// <param name="message">Сообщение об окончании игры.</param>
-        private void GameOver(string message)
+        public void GameOver(string message)
         {
             _isGameOver = true;
             gameTimer.Stop();
@@ -203,7 +205,7 @@ namespace Space_Invaders
         /// <summary>
         /// Удаляет все элементы управления с тегами "sadInvaders", "bullet" и "sadBullet".
         /// </summary>
-        private void RemoveAll()
+        public void RemoveAll()
         {
             foreach (Control x in this.Controls.OfType<PictureBox>().ToList())
             {
@@ -219,7 +221,7 @@ namespace Space_Invaders
         /// </summary>
         /// <param name="bulletTag">Тег пули ("bullet" или "sadBullet").</param>
         /// <param name="enemyLeft">Координата X врага для пули врага (опционально).</param>
-        private void MakeBullet(string bulletTag, int? enemyLeft = null)
+        public void MakeBullet(string bulletTag, int? enemyLeft = null)
         {
             PictureBox bullet = new PictureBox();
             bullet.Size = new Size(10, 40);
@@ -249,7 +251,7 @@ namespace Space_Invaders
         /// </summary>
         /// <param name="xPos">Координата X врага.</param>
         /// <returns>Координата нижней границы врага или 0.</returns>
-        private int GetEnemyBottom(int xPos)
+        public int GetEnemyBottom(int xPos)
         {
             foreach (PictureBox enemy in _sadInvadersArray)
             {
@@ -263,7 +265,7 @@ namespace Space_Invaders
         /// <summary>
         /// Переход на следующий уровень: увеличивает уровень, сбрасывает счётчик уничтоженных врагов.
         /// </summary>
-        private void NextLevel()
+        public void NextLevel()
         {
             _currentLevel++;
             _enemiesDestroyed = 0;
@@ -273,7 +275,7 @@ namespace Space_Invaders
         /// <summary>
         /// Главный обработчик таймера игры: движение, стрельба, столкновения и переход на следующий уровень.
         /// </summary>
-        private void MainGameTimerEvent(object sender, EventArgs e)
+        public void MainGameTimerEvent(object sender, EventArgs e)
         {
             txtScore.Text = $"Score: {_score} | Level: {_currentLevel}";
 
@@ -396,7 +398,7 @@ namespace Space_Invaders
         /// <summary>
         /// Событие загрузки формы (не используется).
         /// </summary>
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
         }
     }

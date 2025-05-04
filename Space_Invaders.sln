@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space_Invaders", "Space_Invaders\Space_Invaders.csproj", "{5C5DD439-0142-4BE5-9759-52EF8E8E312D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMove", "TestMove\TestMove.csproj", "{AE37C379-9630-452D-91AF-630629ED8F5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5C5DD439-0142-4BE5-9759-52EF8E8E312D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C5DD439-0142-4BE5-9759-52EF8E8E312D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C5DD439-0142-4BE5-9759-52EF8E8E312D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE37C379-9630-452D-91AF-630629ED8F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE37C379-9630-452D-91AF-630629ED8F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE37C379-9630-452D-91AF-630629ED8F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE37C379-9630-452D-91AF-630629ED8F5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
